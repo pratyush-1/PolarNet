@@ -50,7 +50,7 @@ class PolarCode:
         for d in range(0,self.n):
             num_bits = 2**d
             for i in np.arange(0,self.N,2*num_bits):
-                #[u0 u1] ---> [u0 xor(u0 u1)] #how??
+                #[u0 u1] ---> [u0 xor(u0 u1)]
                 u = torch.cat((u[:,:i],u[:,i:i+num_bits].clone()*u[:,i+num_bits:i+2*num_bits],u[:,i+num_bits:]),dim=1)
         
         return u
